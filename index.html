@@ -5,7 +5,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>SMB Naturalss – Find Us</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Sans+Tamil:wght@500;600;700;800&display=swap" rel="stylesheet" />
 
 <style>
 *, *::before, *::after {
@@ -15,384 +17,294 @@
 }
 
 :root {
-  --green-dark:   #3a6b1a;
-  --green-mid:    #4e8822;
-  --green-btn:    #417a1e;
-  --green-light:  #e8f2d8;
+  --green-dark:   #2f5d12;
+  --green-hero1:  #549230;
+  --green-hero2:  #3c781d;
+  --green-btn:    #4a8a28;
+  --green-btn-d:  #3d7720;
+  --green-light:  #e9f5dd;
   --green-pale:   #f2f8ea;
   --gold:         #c89a28;
   --white:        #ffffff;
   --text-dark:    #1e3a0e;
   --text-mid:     #3d6318;
   --text-muted:   #6b8f4a;
-  --border:       rgba(62, 107, 26, 0.18);
+  --border:       rgba(62, 107, 26, 0.16);
   --shadow-sm:    0 2px 12px rgba(62,107,26,0.10);
-  --shadow-md:    0 12px 36px rgba(62,107,26,0.18);
-  --radius-sm:    12px;
+  --shadow-md:    0 18px 50px rgba(47,93,18,0.20);
+  --radius-sm:    14px;
   --radius-md:    18px;
-  --radius-lg:    28px;
+  --radius-lg:    26px;
   --radius-pill:  999px;
 }
 
-html {
-  scroll-behavior: smooth;
-}
+html { scroll-behavior: smooth; }
 
 body {
   min-height: 100vh;
   font-family: 'Inter', system-ui, sans-serif;
   background:
-    radial-gradient(circle at 15% 10%, rgba(78,136,34,0.12), transparent 28%),
-    radial-gradient(circle at 85% 90%, rgba(200,154,40,0.12), transparent 32%),
+    radial-gradient(circle at 12% 8%, rgba(78,136,34,0.10), transparent 30%),
+    radial-gradient(circle at 88% 92%, rgba(200,154,40,0.10), transparent 34%),
     var(--green-pale);
   color: var(--text-dark);
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 48px 16px 64px;
+  padding: 32px 14px 56px;
   overflow-x: hidden;
 }
 
-/* Floating background elements */
+/* Floating background blobs */
 .bg-leaf {
   position: fixed;
   width: 130px;
   height: 130px;
   border-radius: 42% 58% 48% 52%;
-  background: rgba(78,136,34,0.08);
+  background: rgba(78,136,34,0.07);
   z-index: -1;
   animation: floatLeaf 7s ease-in-out infinite;
 }
-
-.bg-leaf.one {
-  top: 80px;
-  left: -45px;
-}
-
-.bg-leaf.two {
-  right: -40px;
-  bottom: 120px;
-  animation-delay: 1.5s;
-  background: rgba(200,154,40,0.08);
-}
-
-.bg-leaf.three {
-  top: 45%;
-  left: 8%;
-  width: 90px;
-  height: 90px;
-  background: rgba(78,136,34,0.06);
-  animation-delay: 2.2s;
-}
-
-.bg-leaf.four {
-  top: 18%;
-  right: 12%;
-  width: 70px;
-  height: 70px;
-  background: rgba(200,154,40,0.08);
-  animation-delay: 3.4s;
-}
-
-.bg-leaf.five {
-  bottom: 20%;
-  left: 20%;
-  width: 110px;
-  height: 110px;
-  background: rgba(78,136,34,0.05);
-  animation-delay: 1s;
-}
+.bg-leaf.one   { top: 70px;  left: -45px; }
+.bg-leaf.two   { right: -40px; bottom: 120px; animation-delay: 1.5s; background: rgba(200,154,40,0.07); }
+.bg-leaf.three { top: 46%; left: 6%; width: 90px; height: 90px; background: rgba(78,136,34,0.05); animation-delay: 2.2s; }
 @keyframes floatLeaf {
   0%, 100% { transform: translateY(0) rotate(0deg); }
-  50% { transform: translateY(-18px) rotate(8deg); }
+  50%      { transform: translateY(-18px) rotate(8deg); }
 }
 
-/* Card */
+/* ============ Card shell ============ */
 .card {
+  position: relative;
   width: 100%;
   max-width: 480px;
-  background: rgba(255,255,255,0.92);
+  background: var(--white);
   border-radius: var(--radius-lg);
-  border: 1px solid rgba(255,255,255,0.7);
   box-shadow: var(--shadow-md);
   overflow: hidden;
-  backdrop-filter: blur(18px);
   animation: cardEnter 0.8s ease both;
 }
-
 @keyframes cardEnter {
-  from {
-    opacity: 0;
-    transform: translateY(28px) scale(0.98);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0) scale(1);
-  }
+  from { opacity: 0; transform: translateY(28px) scale(0.985); }
+  to   { opacity: 1; transform: translateY(0) scale(1); }
 }
 
-/* Hero */
-.hero {
-  background:
-    linear-gradient(145deg, rgba(255,255,255,0.08), transparent 45%),
-    var(--green-dark);
-  padding: 38px 28px 30px;
-  text-align: center;
+/* ============ Header (white) ============ */
+.header {
   position: relative;
+  background: var(--white);
+  padding: 20px 24px 16px;
   overflow: hidden;
 }
-
-.hero-shine {
-  position: absolute;
-  top: -50%;
-  left: -150%;
-  width: 60%;
-  height: 220%;
-  pointer-events: none;
-  z-index: 0;
-
-  background: linear-gradient(
-    90deg,
-    transparent,
-    rgba(255,255,255,0.12),
-    rgba(255,255,255,0.22),
-    rgba(255,255,255,0.12),
-    transparent
-  );
-
-  transform: rotate(20deg);
-  animation: heroSweep 5s ease-in-out infinite;
-}
-
-@keyframes heroSweep {
-  0%, 70% {
-    left: -150%;
-    opacity: 0;
-  }
-
-  72% {
-    opacity: 1;
-  }
-
-  100% {
-    left: 180%;
-    opacity: 1;
-  }
-}
-
-.hero::before {
-  content: "";
-  position: absolute;
-  width: 220px;
-  height: 220px;
-  background: rgba(255,255,255,0.06);
-  border-radius: 50%;
-  top: -110px;
-  right: -70px;
-}
-
-.hero::after {
-  content: '';
-  position: absolute;
-  bottom: -1px;
-  left: 0;
-  right: 0;
-  height: 24px;
-  background: var(--white);
-  border-radius: 50% 50% 0 0 / 100% 100% 0 0;
-}
-
-.logo-ring {
-  width: 100px;
-  height: 100px;
-  border-radius: 50%;
-  background: var(--white);
-  border: 3px solid var(--gold);
-
+.logo-wrap {
+  position: relative;
+  z-index: 3;
+  width: 50%;
+  min-height: 150px;
   display: flex;
   align-items: center;
-  justify-content: center;
-
-  margin: 0 auto 14px;
-
-  overflow: hidden;
-  position: relative;
-  z-index: 1;
-
-  animation: breatheHalo 4s ease-in-out infinite;
 }
-
-/* Premium Breathing Halo Animation */
-@keyframes breatheHalo {
-
-  0%, 100% {
-    box-shadow:
-      0 0 0 6px rgba(200,154,40,0.18),
-      0 0 0 12px rgba(78,136,34,0.08),
-      0 12px 30px rgba(0,0,0,0.18);
-  }
-
-  50% {
-    box-shadow:
-      0 0 0 14px rgba(200,154,40,0),
-      0 0 0 28px rgba(78,136,34,0),
-      0 12px 30px rgba(0,0,0,0.18);
-  }
-}
-
-@keyframes logoPop {
-  from {
-    opacity: 0;
-    transform: scale(0.75);
-  }
-
-  to {
-    opacity: 1;
-    transform: scale(1);
-  }
-}
-
-.logo-ring::after {
-  content: "";
-  position: absolute;
-  inset: -40%;
-  background: linear-gradient(120deg, transparent, rgba(255,255,255,0.65), transparent);
-  transform: translateX(-100%) rotate(18deg);
-  animation: shine 3.8s ease-in-out infinite;
-}
-
-@keyframes shine {
-  0%, 65% { transform: translateX(-100%) rotate(18deg); }
-  100% { transform: translateX(100%) rotate(18deg); }
-}
-
-.logo-img {
-  width: 78%;
-  height: 78%;
-  object-fit: contain;
+.smb-logo {
+  width: 100%;
+  max-width: 250px;
+  height: auto;
   display: block;
+  animation: logoPop 0.7s ease both;
+}
+/* Text fallback if smb_logo.png not added yet */
+.smb-logo-text {
+  font-weight: 800;
+  font-size: 56px;
+  line-height: 1;
+  letter-spacing: -2px;
+  color: var(--green-hero1);
   position: relative;
-  z-index: 2;
+}
+.smb-logo-text sup {
+  font-size: 16px;
+  font-weight: 700;
+  vertical-align: super;
+  margin-left: 2px;
+}
+@keyframes logoPop {
+  from { opacity: 0; transform: scale(0.85); }
+  to   { opacity: 1; transform: scale(1); }
 }
 
-.brand-name {
-  font-size: 23px;
+/* Founder photo — large, floats in the top-right; text layers on top of it */
+.founder {
+  position: absolute;
+  top: 8px;
+  right: -18px;
+  width: 58%;
+  max-width: 262px;
+  height: auto;
+  object-fit: contain;
+  object-position: bottom right;
+  z-index: 1;                 /* behind the logo + tagline text */
+  pointer-events: none;
+  filter: drop-shadow(0 8px 18px rgba(0,0,0,0.12));
+  animation: founderIn 0.9s ease both;
+}
+@keyframes founderIn {
+  from { opacity: 0; transform: translateX(16px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+/* Tamil tagline banner */
+.tamil-banner {
+  position: relative;
+  z-index: 4;
+  margin-top: 12px;
+  background: linear-gradient(135deg, #eef7e2, var(--green-light));
+  border: 1px solid rgba(78,136,34,0.16);
+  border-radius: 16px;
+  padding: 13px 22px;
+  text-align: center;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.6);
+}
+.tamil-text {
+  font-family: 'Noto Sans Tamil', 'Inter', sans-serif;
+  font-weight: 700;
+  font-size: clamp(20px, 5.6vw, 26px);
+  color: var(--green-dark);
+  letter-spacing: 0.2px;
+  line-height: 1.25;
+}
+
+/* ============ Hero (green) ============ */
+.hero {
+  position: relative;
+  background: linear-gradient(158deg, var(--green-hero1), var(--green-hero2));
+  padding: 34px 28px 64px;
+  text-align: center;
+  overflow: hidden;
+}
+
+/* decorative palm watermark (right) */
+.hero-palm {
+  position: absolute;
+  right: -18px;
+  bottom: 0;
+  width: 200px;
+  max-width: 46%;
+  opacity: 0.14;
+  filter: brightness(0) invert(1);
+  pointer-events: none;
+  z-index: 0;
+}
+/* decorative farmer + cattle line art (left) */
+.hero-cattle {
+  position: absolute;
+  left: -14px;
+  bottom: 14px;
+  width: 210px;
+  max-width: 50%;
+  opacity: 0.30;
+  filter: brightness(0) invert(1);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.hero-content { position: relative; z-index: 2; }
+
+.hero-title {
+  font-size: clamp(33px, 9vw, 46px);
   font-weight: 800;
   color: var(--white);
-  letter-spacing: -0.4px;
-  margin-bottom: 5px;
-  position: relative;
-  z-index: 1;
+  letter-spacing: -0.5px;
+  line-height: 1.05;
+  text-shadow: 0 2px 14px rgba(0,0,0,0.12);
+}
+.hero-sub {
+  margin: 12px auto 0;
+  max-width: 360px;
+  font-size: clamp(15px, 4.2vw, 19px);
+  font-weight: 400;
+  line-height: 1.4;
+  color: rgba(255,255,255,0.92);
 }
 
-.brand-tagline {
-  font-size: 13px;
-  color: rgba(255,255,255,0.76);
-  font-weight: 300;
-  letter-spacing: 0.3px;
-  position: relative;
-  z-index: 1;
-}
-
-.badge-row {
+.hero-pills {
   display: flex;
-  justify-content: center;
-  gap: 8px;
-  margin-top: 16px;
   flex-wrap: wrap;
-  position: relative;
-  z-index: 1;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 22px;
+  max-width: 340px;
+  margin-left: auto;
+  margin-right: auto;
 }
-
-.badge {
-  background: rgba(255,255,255,0.12);
-  border: 1px solid rgba(255,255,255,0.22);
-  color: rgba(255,255,255,0.9);
-  font-size: 11px;
+.hero-pill {
+  background: rgba(255,255,255,0.13);
+  border: 1px solid rgba(255,255,255,0.42);
+  color: #fff;
+  font-size: 14px;
   font-weight: 500;
-  padding: 5px 11px;
+  padding: 9px 20px;
   border-radius: var(--radius-pill);
-  backdrop-filter: blur(8px);
+  backdrop-filter: blur(6px);
+  white-space: nowrap;
 }
 
-/* Body */
-.body {
-  padding: 30px 24px 32px;
+/* ============ White content area ============ */
+.content {
+  position: relative;
+  z-index: 3;
+  margin-top: -26px;
+  background: var(--white);
+  border-radius: 26px 26px 0 0;
+  padding: 30px 22px 30px;
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 14px;
 }
 
-.section-label {
-  font-size: 10px;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 1.5px;
-  color: var(--text-muted);
-  margin-top: 8px;
-  margin-bottom: 2px;
-  padding-left: 2px;
-}
-
-/* Primary button */
+/* Primary "Visit Our Website" button */
 .btn-primary {
   display: flex;
   align-items: center;
   justify-content: space-between;
   width: 100%;
-  padding: 16px 20px;
-  background:
-    linear-gradient(135deg, rgba(255,255,255,0.10), transparent 45%),
-    var(--green-btn);
+  padding: 18px 18px;
+  background: linear-gradient(135deg, var(--green-btn), var(--green-btn-d));
   border: none;
-  border-radius: var(--radius-md);
+  border-radius: 20px;
   color: var(--white);
-  font-size: 15px;
-  font-weight: 600;
-  cursor: pointer;
   text-decoration: none;
+  cursor: pointer;
   transition: 0.22s ease;
-  box-shadow: 0 8px 22px rgba(62,107,26,0.28);
+  box-shadow: 0 12px 26px rgba(62,107,26,0.28);
   position: relative;
   overflow: hidden;
 }
-
 .btn-primary::after {
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(120deg, transparent, rgba(255,255,255,0.18), transparent);
-  transform: translateX(-100%);
-  transition: 0.45s ease;
+  background: linear-gradient(120deg, transparent, rgba(255,255,255,0.20), transparent);
+  transform: translateX(-120%);
+  transition: 0.5s ease;
 }
-
-.btn-primary:hover::after {
-  transform: translateX(100%);
-}
-
+.btn-primary:hover::after { transform: translateX(120%); }
 .btn-primary:hover {
-  background: #355e17;
   transform: translateY(-2px);
-  box-shadow: 0 12px 28px rgba(62,107,26,0.34);
+  box-shadow: 0 16px 32px rgba(62,107,26,0.34);
 }
-
-.btn-primary:active {
-  transform: scale(0.99);
-}
+.btn-primary:active { transform: scale(0.99); }
 
 .btn-left {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 14px;
   position: relative;
   z-index: 1;
 }
-
 .btn-icon {
-  width: 38px;
-  height: 38px;
-  background: rgba(255,255,255,0.15);
-  border-radius: 12px;
+  width: 46px;
+  height: 46px;
+  background: rgba(255,255,255,0.16);
+  border-radius: 13px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -400,34 +312,20 @@ body {
 }
 
 .btn-icon img {
-  width: 21px;
-  height: 21px;
+  width: 24px;
+  height: 24px;
   object-fit: contain;
 }
 
-.btn-label {
-  text-align: left;
-}
-
-.btn-title {
-  display: block;
-  font-size: 15px;
-  font-weight: 700;
-}
-
-.btn-sub {
-  display: block;
-  font-size: 11px;
-  font-weight: 400;
-  opacity: 0.74;
-  margin-top: 2px;
-}
+.btn-label { text-align: left; }
+.btn-title { display: block; font-size: 19px; font-weight: 700; letter-spacing: -0.2px; }
+.btn-sub   { display: block; font-size: 13px; font-weight: 400; opacity: 0.82; margin-top: 2px; }
 
 .arrow {
-  width: 30px;
-  height: 30px;
-  background: rgba(255,255,255,0.15);
-  border-radius: 10px;
+  width: 38px;
+  height: 38px;
+  background: rgba(255,255,255,0.16);
+  border-radius: 12px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -436,154 +334,78 @@ body {
   z-index: 1;
   transition: 0.2s ease;
 }
-
-.btn-primary:hover .arrow {
-  transform: translateX(3px);
-}
-
-.arrow svg {
-  width: 14px;
-  height: 14px;
-  stroke: white;
-  fill: none;
-  stroke-width: 2.2;
-  stroke-linecap: round;
-  stroke-linejoin: round;
-}
+.btn-primary:hover .arrow { transform: translateX(3px); }
+.arrow svg { width: 16px; height: 16px; stroke: #fff; fill: none; stroke-width: 2.4; stroke-linecap: round; stroke-linejoin: round; }
+.btn-icon svg { width: 24px; height: 24px; }
 
 /* Social grid */
 .social-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 10px;
+  gap: 12px;
 }
-
 .btn-social {
   display: flex;
   align-items: center;
-  gap: 10px;
-  padding: 14px;
+  gap: 12px;
+  padding: 15px 14px;
   border-radius: var(--radius-sm);
-  border: 1.5px solid var(--border);
-  background:
-    linear-gradient(145deg, rgba(255,255,255,0.9), rgba(255,255,255,0.68));
+  border: 1px solid var(--border);
+  background: var(--white);
   text-decoration: none;
   color: var(--text-dark);
-  font-size: 13px;
-  font-weight: 600;
   cursor: pointer;
-  transition: 0.22s ease;
-  position: relative;
-  overflow: hidden;
-}
-
-.btn-social::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: var(--green-light);
-  opacity: 0;
   transition: 0.2s ease;
+  box-shadow: 0 1px 3px rgba(47,93,18,0.05);
 }
-
-.btn-social:hover::before {
-  opacity: 1;
-}
-
 .btn-social:hover {
-  border-color: var(--green-mid);
+  border-color: var(--green-hero1);
   transform: translateY(-3px);
   box-shadow: var(--shadow-sm);
 }
 
-.social-icon,
-.soc-label {
-  position: relative;
-  z-index: 1;
-}
-
 .social-icon {
-  width: 26px;
-  height: 26px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-  background: transparent !important;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
 }
 
 .social-icon img {
-  object-fit: contain;
-  display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
 }
 
-.si-instagram img {
-  width: 25px;
-  height: 25px;
+.social-icon img.youtube-logo {
+  width: 100px;
+  height: 100px;
 }
-
-.si-facebook img {
-  width: 29px;
-  height: 29px;
-}
-
-.si-youtube img {
-  width: 80px;
-  height: 80px;
-}
-
-.si-about img {
-  width: 35px;
-  height: 35px;
-}
-
-.soc-name {
-  display: block;
-  font-size: 13px;
-  font-weight: 700;
-  color: var(--text-dark);
-}
-
-.soc-hint {
-  display: block;
-  font-size: 10px;
-  font-weight: 400;
-  color: var(--text-muted);
-  margin-top: 2px;
-}
+.social-icon svg { display: block; }
+.soc-name { display: block; font-size: 14px; font-weight: 700; color: var(--text-dark); line-height: 1.2; }
+.soc-hint { display: block; font-size: 11px; font-weight: 400; color: var(--text-muted); margin-top: 2px; }
 
 /* WhatsApp */
 .btn-whatsapp {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 14px 18px;
+  padding: 15px 18px;
   border-radius: var(--radius-md);
   background: #f0fdf4;
-  border: 1.5px solid #86efac;
+  border: 1px solid #bbf7d0;
   text-decoration: none;
   color: var(--text-dark);
   transition: 0.2s ease;
   cursor: pointer;
-  position: relative;
-  overflow: hidden;
 }
-
-.btn-whatsapp:hover {
-  background: #dcfce7;
-  transform: translateY(-2px);
-  box-shadow: var(--shadow-sm);
-}
-
-.wa-left {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-}
-
+.btn-whatsapp:hover { background: #dcfce7; transform: translateY(-2px); box-shadow: var(--shadow-sm); }
+.wa-left { display: flex; align-items: center; gap: 12px; }
 .wa-icon {
-  width: 42px;
-  height: 42px;
+  width: 44px;
+  height: 44px;
   background: #25d366;
   border-radius: 14px;
   display: flex;
@@ -591,46 +413,29 @@ body {
   justify-content: center;
   animation: softPulse 2.5s ease-in-out infinite;
 }
-
 @keyframes softPulse {
-  0%, 100% { box-shadow: 0 0 0 0 rgba(37,211,102,0.28); }
-  50% { box-shadow: 0 0 0 8px rgba(37,211,102,0); }
+  0%, 100% { box-shadow: 0 0 0 0 rgba(37,211,102,0.30); }
+  50%      { box-shadow: 0 0 0 9px rgba(37,211,102,0); }
 }
-
-.wa-label {
-  font-size: 14px;
-  font-weight: 700;
-  color: #166534;
-}
-
-.wa-num {
-  font-size: 12px;
-  font-weight: 400;
-  color: #16a34a;
-  margin-top: 1px;
-}
-
-.wa-cta {
-  font-size: 11px;
-  font-weight: 700;
-  background: #25d366;
-  color: white;
-  padding: 6px 13px;
-  border-radius: var(--radius-pill);
-}
+.wa-label { font-size: 15px; font-weight: 700; color: #166534; }
+.wa-num   { font-size: 12px; font-weight: 400; color: #16a34a; margin-top: 1px; }
+.wa-cta   { font-size: 12px; font-weight: 700; background: #25d366; color: #fff; padding: 7px 14px; border-radius: var(--radius-pill); white-space: nowrap; }
 
 /* About */
 .about-box {
-  background:
-    linear-gradient(145deg, rgba(255,255,255,0.45), transparent 45%),
-    var(--green-light);
+  background: linear-gradient(145deg, rgba(255,255,255,0.5), transparent 50%), var(--green-light);
   border: 1px solid rgba(78,136,34,0.2);
   border-radius: var(--radius-md);
   padding: 18px 20px;
   position: relative;
   overflow: hidden;
+  margin-top: 4px;
 }
-
+.youtube-logo {
+    width: 40px;
+    height: 40px;
+    object-fit: contain;
+}
 .about-box::after {
   content: "";
   position: absolute;
@@ -641,7 +446,6 @@ body {
   border-radius: 50%;
   background: rgba(78,136,34,0.08);
 }
-
 .about-title {
   font-size: 13px;
   font-weight: 800;
@@ -655,111 +459,42 @@ body {
   position: relative;
   z-index: 1;
 }
-
-.about-title svg {
-  width: 16px;
-  height: 16px;
-  flex-shrink: 0;
-}
-
-.about-text {
-  font-size: 13px;
-  line-height: 1.68;
-  color: var(--text-mid);
-  position: relative;
-  z-index: 1;
-}
-
-.about-pills {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 6px;
-  margin-top: 13px;
-  position: relative;
-  z-index: 1;
-}
-
-.logo-container {
-  text-align: center;
-  margin: 0 auto 18px;
-  position: relative;
-  z-index: 1;
-}
-.hero {
-  background:
-    linear-gradient(145deg, rgba(255,255,255,0.08), transparent 45%),
-    var(--green-dark);
-  padding: 48px 28px 34px;
-  text-align: center;
-  position: relative;
-  overflow: hidden;
-}
-.brand-name {
-  margin-top: 4px;
-}
-.logo-img {
-  width: 220px;
-  max-width: 85%;
-  height: auto;
-  object-fit: contain;
-  display: block;
-  margin: 0 auto;
-}
-
+.about-title svg { width: 16px; height: 16px; flex-shrink: 0; }
+.about-text { font-size: 13px; line-height: 1.68; color: var(--text-mid); position: relative; z-index: 1; }
+.about-pills { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 13px; position: relative; z-index: 1; }
 .about-pill {
   font-size: 11px;
   font-weight: 600;
-  background: white;
+  background: #fff;
   color: var(--green-dark);
   border: 1px solid rgba(62,107,26,0.25);
   padding: 4px 10px;
   border-radius: var(--radius-pill);
   transition: 0.18s ease;
 }
-
-.about-pill:hover {
-  transform: translateY(-2px);
-  box-shadow: var(--shadow-sm);
-}
+.about-pill:hover { transform: translateY(-2px); box-shadow: var(--shadow-sm); }
 
 /* Footer */
 .footer {
-  margin-top: 28px;
+  margin-top: 26px;
   font-size: 12px;
   color: var(--text-muted);
   text-align: center;
   letter-spacing: 0.2px;
 }
+.footer strong { color: var(--green-dark); }
 
-.footer strong {
-  color: var(--green-dark);
-}
-
-/* Small screen */
+/* Small screens */
 @media (max-width: 420px) {
-  body {
-    padding: 28px 12px 48px;
-  }
-
-  .body {
-    padding: 28px 18px 28px;
-  }
-
-  .social-grid {
-    gap: 9px;
-  }
-
-  .btn-social {
-    padding: 13px 11px;
-  }
-
-  .soc-name {
-    font-size: 12px;
-  }
-
-  .soc-hint {
-    font-size: 9px;
-  }
+  body { padding: 22px 10px 44px; }
+  .header { padding: 18px 18px 14px; }
+  .content { padding: 28px 16px 26px; }
+  .founder { max-width: 44%; }
+  .logo-wrap { width: 60%; min-height: 80px; }
+  .smb-logo-text { font-size: 46px; }
+  .social-grid { gap: 10px; }
+  .btn-social { padding: 13px 11px; }
+  .btn-title { font-size: 17px; }
 }
 </style>
 </head>
@@ -769,33 +504,49 @@ body {
 <div class="bg-leaf one"></div>
 <div class="bg-leaf two"></div>
 <div class="bg-leaf three"></div>
-<div class="bg-leaf four"></div>
-<div class="bg-leaf five"></div>
 
 <div class="card">
 
-  <div class="hero">
-    <div class="hero-shine"></div>
-
-    <div class="logo-container">
-      <img src="smb_logo_latest.png" alt="SMB Naturals Logo" class="logo-img">
+  <!-- ============ Header ============ -->
+  <header class="header">
+    <!-- SMB logo (add smb_logo.png to the folder; text mark shows until then) -->
+    <div class="logo-wrap">
+      <img src="smb_logo_latest.png" alt="SMB Naturalss" class="smb-logo"
+           onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-block';" />
+      <span class="smb-logo-text" style="display:none">SMB<sup>™</sup></span>
     </div>
 
-    <p class="brand-name">SMB Naturalss</p>
-    <p class="brand-tagline">Naturally Made Skincare &amp; Haircare Products</p>
+    <!-- Founder photo (provided) — sits behind the tagline text -->
+    <img src="background_removed_smb.png" alt="Founder of SMB Naturalss" class="founder" />
 
-    <div class="badge-row">
-      <span class="badge">100% Natural</span>
-      <span class="badge">Plant-Based</span>
-      <span class="badge">Chemical-Free</span>
+    <!-- Tamil tagline -->
+    <div class="tamil-banner">
+      <span class="tamil-text">ஒரு உழவனின் படைப்பு</span>
     </div>
-  </div>
+  </header>
 
-  <div class="body">
+  <!-- ============ Hero ============ -->
+  <section class="hero">
+    <img src="coconut-removebg-preview.png" alt="" class="hero-palm" aria-hidden="true" />
+    <img src="cattle_image-removebg-preview.png" alt="" class="hero-cattle" aria-hidden="true" />
 
-    <p class="section-label">Shop Online</p>
+    <div class="hero-content">
+      <h1 class="hero-title">SMB Naturalss</h1>
+      <p class="hero-sub">Naturally Made Skincare &amp; Haircare Products</p>
 
-    <a href="https://www.smbnaturalss.in/" target="_blank" class="btn-primary">
+      <div class="hero-pills">
+        <span class="hero-pill">100% Natural</span>
+        <span class="hero-pill">Plant-Based</span>
+        <span class="hero-pill">Chemical-Free</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ Content ============ -->
+  <div class="content">
+
+    <!-- Visit Our Website -->
+    <a href="https://www.smbnaturalss.in/" target="_blank" rel="noopener" class="btn-primary">
       <span class="btn-left">
         <span class="btn-icon">
           <img src="website_logo.png" alt="Website">
@@ -805,53 +556,78 @@ body {
           <span class="btn-sub">Browse all products &amp; collections</span>
         </span>
       </span>
-
       <span class="arrow">
-        <svg viewBox="0 0 24 24">
-          <polyline points="9 18 15 12 9 6"/>
-        </svg>
+        <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"></polyline></svg>
       </span>
     </a>
 
-    <p class="section-label" style="margin-top:4px;">Follow Us</p>
-
+    <!-- Social grid -->
     <div class="social-grid">
 
-      <a href="https://www.instagram.com/smb_naturalsoap/" target="_blank" class="btn-social">
-        <span class="social-icon si-instagram">
-          <img src="instagram_logo.webp" alt="Instagram">
+      <!-- Instagram -->
+      <a href="https://www.instagram.com/smb_naturalsoap/" target="_blank" rel="noopener" class="btn-social">
+        <span class="social-icon">
+          <img src="instagram_logo.webp" alt="Instagram"
+               onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" />
+          <svg width="30" height="30" viewBox="0 0 24 24" style="display:none">
+            <defs>
+              <radialGradient id="ig" cx="30%" cy="107%" r="135%">
+                <stop offset="0%" stop-color="#fdf497"/>
+                <stop offset="8%" stop-color="#fdf497"/>
+                <stop offset="45%" stop-color="#fd5949"/>
+                <stop offset="60%" stop-color="#d6249f"/>
+                <stop offset="90%" stop-color="#285AEB"/>
+              </radialGradient>
+            </defs>
+            <rect x="2" y="2" width="20" height="20" rx="6" fill="url(#ig)"/>
+            <circle cx="12" cy="12" r="4.4" fill="none" stroke="#fff" stroke-width="1.9"/>
+            <circle cx="17.4" cy="6.6" r="1.25" fill="#fff"/>
+          </svg>
         </span>
-        <span class="soc-label">
+        <span>
           <span class="soc-name">Instagram</span>
           <span class="soc-hint">@smb_naturalsoap</span>
         </span>
       </a>
 
-      <a href="https://www.facebook.com/profile.php?id=61574020446800" target="_blank" class="btn-social">
-        <span class="social-icon si-facebook">
-          <img src="facebook logo.png" alt="Facebook">
+      <!-- Facebook -->
+      <a href="https://www.facebook.com/profile.php?id=61574020446800" target="_blank" rel="noopener" class="btn-social">
+        <span class="social-icon">
+          <img src="facebook logo.png" alt="Facebook"
+               onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" />
+          <svg width="30" height="30" viewBox="0 0 24 24" style="display:none">
+            <circle cx="12" cy="12" r="11" fill="#1877F2"/>
+            <path fill="#fff" d="M13.6 21v-7h2.3l.4-2.7h-2.7V9.5c0-.78.22-1.31 1.36-1.31h1.45V5.86c-.25-.03-1.11-.11-2.11-.11-2.09 0-3.52 1.27-3.52 3.62v2.02H8.45V14h2.3v7h2.85z"/>
+          </svg>
         </span>
-        <span class="soc-label">
+        <span>
           <span class="soc-name">Facebook</span>
           <span class="soc-hint">SMB Enterprises</span>
         </span>
       </a>
 
-      <a href="https://www.youtube.com/@bharathismb3527/shorts" target="_blank" class="btn-social">
-        <span class="social-icon si-youtube">
-          <img src="youtube logo.png" alt="YouTube">
+      <!-- YouTube -->
+      <a href="https://www.youtube.com/@bharathismb3527/shorts" target="_blank" rel="noopener" class="btn-social">
+        <span class="social-icon">
+          <img src="youtube logo.png" alt="YouTube" class="youtube-logo"
+               onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" />
+          <svg width="30" height="30" viewBox="0 0 24 24" style="display:none">
+            <rect x="1.5" y="5" width="21" height="14" rx="4.4" fill="#FF0000"/>
+            <path d="M10 8.7l5.6 3.3L10 15.3z" fill="#fff"/>
+          </svg>
         </span>
-        <span class="soc-label">
+        <span>
           <span class="soc-name">YouTube</span>
           <span class="soc-hint">Our channel</span>
         </span>
       </a>
 
-      <a href="https://www.smbnaturalss.in/about/" target="_blank" class="btn-social">
-        <span class="social-icon si-about">
-          <img src="heart_logo.png" alt="YouTube">
+      <!-- Know Our Story -->
+      <a href="https://www.smbnaturalss.in/about/" target="_blank" rel="noopener" class="btn-social">
+        <span class="social-icon">
+          <img src="heart_logo.png" alt="Heart">
         </span>
-        <span class="soc-label">
+        <span>
           <span class="soc-name">Know Our Story</span>
           <span class="soc-hint">From nature to your home</span>
         </span>
@@ -859,40 +635,34 @@ body {
 
     </div>
 
-    <p class="section-label" style="margin-top:4px;">Chat with Us</p>
-
-    <a href="https://wa.me/919842410599" target="_blank" class="btn-whatsapp">
+    <!-- WhatsApp -->
+    <a href="https://wa.me/919842410599" target="_blank" rel="noopener" class="btn-whatsapp">
       <span class="wa-left">
         <span class="wa-icon">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="white">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="#fff">
             <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/>
           </svg>
         </span>
-
         <span>
           <div class="wa-label">WhatsApp Us</div>
-          <div class="wa-num">+91 9842410599</div>
+          <div class="wa-num">+91 98424 10599</div>
         </span>
       </span>
-
       <span class="wa-cta">Chat Now</span>
     </a>
 
-    <p class="section-label" style="margin-top:4px;">About Us</p>
-
+    <!-- About -->
     <div class="about-box">
       <div class="about-title">
-        <svg viewBox="0 0 24 24" fill="none" stroke="#3a6b1a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M12 2a10 10 0 1 0 0 20A10 10 0 0 0 12 2z"/>
-          <path d="M12 16v-4M12 8h.01"/>
+        <svg viewBox="0 0 24 24" fill="none" stroke="#2f5d12" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 2a10 10 0 1 0 0 20A10 10 0 0 0 12 2z"></path>
+          <path d="M12 16v-4M12 8h.01"></path>
         </svg>
         SMB Naturalss
       </div>
-
       <p class="about-text">
         We craft premium skincare &amp; haircare products using 18+ herbal ingredients sourced straight from nature. From farm to your home — every product is handcrafted, chemical-free, and rooted in traditional Indian formulas.
       </p>
-
       <div class="about-pills">
         <span class="about-pill">Farm to Home</span>
         <span class="about-pill">Authentic</span>
